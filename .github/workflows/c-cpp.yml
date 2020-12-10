@@ -21,7 +21,7 @@ jobs:
       run: make binrpm-pkg
     - uses: actions/download-artifact@v2
       with:
-      path: /home/runner/rpmbuild/RPMS/i386/
+        path: /home/runner/rpmbuild/RPMS/i386/
     
     - name: Display structure of downloaded files
       run: ls -R
