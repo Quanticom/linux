@@ -13,8 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: make alldefconfig
-      run: make alldefconfig
+    - name: make tinyconfig
+      run: make tinyconfig
     - name: make
       run: make
     - name: make binrpm-pkg
