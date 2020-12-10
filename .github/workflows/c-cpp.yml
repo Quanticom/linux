@@ -1,0 +1,21 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: centos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: make alldefconfig
+      run: make alldefconfig
+    - name: make
+      run: make
+    - name: make binrpm-pkg
+      run: make binrpm-pkg
