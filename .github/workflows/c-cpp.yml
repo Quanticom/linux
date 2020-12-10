@@ -19,3 +19,32 @@ jobs:
       run: make
     - name: make binrpm-pkg
       run: make binrpm-pkg
+- name: Download artifact
+  uses: dawidd6/action-download-artifact@v2
+  with:
+    # Optional, GitHub token
+    github_token: ${{secrets.GITHUB_TOKEN}}
+    # Required, workflow file name or ID
+    workflow: c-cpp.yml
+    # Optional, the conclusion of a completed workflow to search for
+    # Can be one of:
+    # "failure", "success", "neutral", "cancelled", "skipped", "timed_out", "action_required"
+    # Ignores conclusion by default (thus using the most recent completed run when no other option is specified, regardless of conclusion)
+    workflow_conclusion: success
+    # Optional, will get head commit SHA
+    pr: ${{github.event.pull_request.number}}
+    # Optional, no need to specify if PR is
+    commit: ${{github.event.pull_request.head.sha}}
+    # Optional, will use the branch
+    branch: master
+    # Optional, will use specified workflow run
+    # run_id: 1122334455
+    # Optional, uploaded artifact name,
+    # will download all artifacts if not specified
+    # and extract them in respective subdirectories
+    # https://github.com/actions/download-artifact#download-all-artifacts
+    #name: artifact_name
+    # Optional, directory where to extract artifact
+    #path: extract_here
+    # Optional, defaults to current repo
+    repo: ${{github.repository}}
