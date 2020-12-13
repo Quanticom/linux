@@ -21,8 +21,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '12'
-    - run: npm install
-    - run: npm run build
+    - run: echo > hola
+    #- run: npm run build
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
@@ -31,14 +31,14 @@ jobs:
       with:
         name: public
         path: public
-  deploy:
-    runs-on: ubuntu-latest
+#  deploy:
+#    runs-on: ubuntu-latest
     
-    steps:
-      - name: Download files to publish
-        uses: actions/download-artifact@v2
-        with:
-          name: public
+#    steps:
+    - name: Download files to publish
+      uses: actions/download-artifact@v2
+      with:
+        name: public
 
 #      - name: Configure AWS Credentials
 #        uses: aws-actions/configure-aws-credentials@v1
