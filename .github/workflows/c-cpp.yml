@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu_latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -30,7 +30,7 @@ jobs:
       id: runcmd
       with:
        arch: ppc64le
-       distro: ubuntu20.04
+       distro: fedora_latest
 
     - run: rpm --eval '%{_target}'
     - name: make tinyconfig
