@@ -12,26 +12,27 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    - name: Checkout
     - uses: actions/checkout@v2
       
     - name: Compile  
-      run: echo -e "buildarchtranslate:\ti386:\tx86_64\nbuildarchtranslate:\ti486:\tx86_64\nbuildarchtranslate:\ti586:\tx86_64\nbuildarchtranslate:\ti686:\tx86_64\nbuildarchtranslate:\tathlon:\tx86_64\nbuildarchtranslate:\tx86_64:\tx86_64" >> ~/.rpmrc
-#    - run: echo -e "%define arch x86_64\nBuildArch:\t%{arch}" >> ~/.rpmrc
-#    - run: cat ~/.rpmrc
-#    - run: rpm --eval '%{_target}'
-#    - run: cat /home/runner/.rpmrc
-#    - name: make tinyconfig
-#      run: make tinyconfig
-#    - name: make
-#      run: make
-#    - name: make binrpm-pkg
-#      run: make binrpm-pkg
-      	    
+      run: | 
+       echo -e "buildarchtranslate:\ti386:\tx86_64\nbuildarchtranslate:\ti486:\tx86_64\nbuildarchtranslate:\ti586:\tx86_64\nbuildarchtranslate:\ti686:\tx86_64\nbuildarchtranslate:\tathlon:\tx86_64\nbuildarchtranslate:\tx86_64:\tx86_64" >> ~/.rpmrc
+       echo -e "%define arch x86_64\nBuildArch:\t%{arch}" >> ~/.rpmrc
+       cat ~/.rpmrc
+       rpm --eval '%{_target}'
+       cat /home/runner/.rpmrc
+
+    - name: make tinyconfig
+      run: make tinyconfig
+    - name: make
+      run: make
+    - name: make binrpm-pkg
+      run: make binrpm-pkg
+
 #    - run: mkdir -p /home/runner/rpmbuild/RPMS/i386/	#    - run: mkdir -p /home/runner/rpmbuild/RPMS/i386/
 #    - run: echo hola >/home/runner/rpmbuild/RPMS/i386/hola.txt	#    - run: echo hola >/home/runner/rpmbuild/RPMS/i386/hola.txt
 #    - run: ls -l /home/runner/rpmbuild/RPMS/i386/	#    - run: ls -l /home/runner/rpmbuild/RPMS/i386/
-      	      
+
     - uses: actions/upload-artifact@v2
       with:
         name: Compiled_Kernel
