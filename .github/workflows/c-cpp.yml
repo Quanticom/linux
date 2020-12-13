@@ -18,15 +18,19 @@ jobs:
     - run: echo -e "%define arch x86_64\nBuildArch:\t%{arch}" >> ~/.rpmrc
     - run: cat ~/.rpmrc
     - run: rpm --eval '%{_target}'
-    - run: make tinyconfig
-    - run: make
-    - run: make binrpm-pkg
-      
-#    - run: mkdir -p /home/runner/rpmbuild/RPMS/i386/
-#    - run: echo hola >/home/runner/rpmbuild/RPMS/i386/hola.txt
-#    - run: ls -l /home/runner/rpmbuild/RPMS/i386/
-      
+    - run: cat /home/runner/.rpmrc
+    - name: make tinyconfig
+      run: make tinyconfig
+    - name: make
+      run: make
+    - name: make binrpm-pkg
+      run: make binrpm-pkg
+      	      
+#    - run: mkdir -p /home/runner/rpmbuild/RPMS/i386/	#    - run: mkdir -p /home/runner/rpmbuild/RPMS/i386/
+#    - run: echo hola >/home/runner/rpmbuild/RPMS/i386/hola.txt	#    - run: echo hola >/home/runner/rpmbuild/RPMS/i386/hola.txt
+#    - run: ls -l /home/runner/rpmbuild/RPMS/i386/	#    - run: ls -l /home/runner/rpmbuild/RPMS/i386/
+      	      
     - uses: actions/upload-artifact@v2
       with:
         name: Compiled_Kernel
-        path: ~/rpmbuild/RPMS/x86_64/
+        path: /home/runner/rpmbuild/RPMS/x86_64/
