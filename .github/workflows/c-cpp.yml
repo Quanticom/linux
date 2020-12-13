@@ -19,12 +19,11 @@ jobs:
       run: make
     - name: make binrpm-pkg
       run: make binrpm-pkg
-      
-- name: Download a Build Artifact
-  uses: actions/download-artifact@v2.0.6
-  with:
-    # Artifact name
-    name: # optional
-    # Destination path
-    path: # optional
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v2.0.6
+      #with:
+        # Artifact name
+        #name: # optional
+        # Destination path
+        #path: # optional
     
