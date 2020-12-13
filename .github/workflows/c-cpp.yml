@@ -26,7 +26,7 @@ jobs:
     - name: make clean
       run: make clean
     - name: make rpm-pkg
-      run: make rpm-pkg
+      run: UTS_MACHINE="`uanme -m`" make rpm-pkg
     #- name: make binrpm-pkg
     #  run: make binrpm-pkg
 #    - run: mkdir -p /home/runner/rpmbuild/RPMS/i386/	#    - run: mkdir -p /home/runner/rpmbuild/RPMS/i386/
