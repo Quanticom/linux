@@ -30,7 +30,7 @@ jobs:
       id: runcmd
       with:
        arch: ppc64le
-       distro: fedora_latest
+       distro: ubuntu20.04
 
     - run: rpm --eval '%{_target}'
     - name: make tinyconfig
