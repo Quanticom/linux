@@ -13,11 +13,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: RPMRC
-      run: | 
-       echo -e "buildarchtranslate:\ti386:\tx86_64\nbuildarchtranslate:\ti486:\tx86_64\nbuildarchtranslate:\ti586:\tx86_64\nbuildarchtranslate:\ti686:\tx86_64\nbuildarchtranslate:\tathlon:\tx86_64\nbuildarchtranslate:\tx86_64:\tx86_64" >> ~/.rpmrc
-       cat ~/.rpmrc
-       rpm --eval '%{_target}'
+    - name: RPMRC 
+      run: echo -e "buildarchtranslate:\ti386:\tx86_64\nbuildarchtranslate:\ti486:\tx86_64\nbuildarchtranslate:\ti586:\tx86_64\nbuildarchtranslate:\ti686:\tx86_64\nbuildarchtranslate:\tathlon:\tx86_64\nbuildarchtranslate:\tx86_64:\tx86_64" >> ~/.rpmrc
+      run: cat ~/.rpmrc
+      run: rpm --eval '%{_target}'
     - name: make tinyconfig
       run: make tinyconfig
     - name: make
