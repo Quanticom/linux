@@ -13,8 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - run: echo "%define arch x86_64" >/home/runner/.rpmrc
-    - run: echo "BuildArch: %{arch}" >>/home/runner/.rpmrc
+    - run: echo "BuildArch:x86_64" > /home/runner/.rpmrc
 #    - run: echo "build arch:x86_64" >/home/runner/.rpmrc
 #    - run: echo "compatible build archs:x86_64 noarch" >>/home/runner/.rpmrc
 #    - run: echo "build os:Linux" >>/home/runner/.rpmrc
