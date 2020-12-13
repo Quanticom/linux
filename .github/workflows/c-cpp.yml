@@ -13,7 +13,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - run: echo "BuildArch:x86_64" > /home/runner/.rpmrc
+    - run: echo "buildarchtranslate:\ i386:\ x86_64" > /home/runner/.rpmrc
+    - run: rpm --eval '%{_target}'
+#    - run: echo "BuildArch:x86_64" > /home/runner/.rpmrc
 #    - run: echo "build arch:x86_64" >/home/runner/.rpmrc
 #    - run: echo "compatible build archs:x86_64 noarch" >>/home/runner/.rpmrc
 #    - run: echo "build os:Linux" >>/home/runner/.rpmrc
@@ -22,18 +24,18 @@ jobs:
 #    - run: echo "compatible os's:Linux" >>/home/runner/.rpmrc
     - run: cat /home/runner/.rpmrc
 #    - run: export RPM_ARCH="x86_64"
-    - name: make tinyconfig
-      run: make tinyconfig
-    - name: make
-      run: make
-    - name: make binrpm-pkg
-      run: make binrpm-pkg
+#    - name: make tinyconfig
+#      run: make tinyconfig
+#    - name: make
+#      run: make
+#    - name: make binrpm-pkg
+#      run: make binrpm-pkg
       
 #    - run: mkdir -p /home/runner/rpmbuild/RPMS/i386/
 #    - run: echo hola >/home/runner/rpmbuild/RPMS/i386/hola.txt
 #    - run: ls -l /home/runner/rpmbuild/RPMS/i386/
       
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Compiled_Kernel
-        path: /home/runner/rpmbuild/RPMS/i386/
+#    - uses: actions/upload-artifact@v2
+#      with:
+#        name: Compiled_Kernel
+#        path: /home/runner/rpmbuild/RPMS/i386/
