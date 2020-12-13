@@ -12,19 +12,18 @@ jobs:
     runs-on: self-hosted
 
     steps:
+    - name: Checkout
     - uses: actions/checkout@v2
-    - run: echo -e "buildarchtranslate:\ti386:\tx86_64" > ~/.rpmrc
-    - run: echo -e "buildarchtranslate:\ti486:\tx86_64" >> ~/.rpmrc
-    - run: echo -e "buildarchtranslate:\ti586:\tx86_64" >> ~/.rpmrc
-    - run: echo -e "buildarchtranslate:\ti686:\tx86_64" >> ~/.rpmrc
-    - run: echo -e "buildarchtranslate:\tathlon:\tx86_64" >> ~/.rpmrc
-    - run: echo -e "buildarchtranslate:\tx86_64:\tx86_64" >> ~/.rpmrc
-
+    - name: RPMRC
+    - run: echo -e "buildarchtranslate:\ti386:\tx86_64\nbuildarchtranslate:\ti486:\tx86_64\nbuildarchtranslate:\ti586:\tx86_64\nbuildarchtranslate:\ti686:\tx86_64\nbuildarchtranslate:\tathlon:\tx86_64\nbuildarchtranslate:\tx86_64:\tx86_64" >> ~/.rpmrc
+    - name: ARCH
     - run: echo -e "%define arch x86_64" >> ~/.rpmrc
     - run: echo -e "BuildArch:\t%{arch}" >> ~/.rpmrc
 
+    - name: cat
     - run: cat ~/.rpmrc
 
+    - name: Compile
     - run: |
        rpm --eval '%{_target}'
        make tinyconfig
