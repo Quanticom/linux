@@ -1,0 +1,6 @@
+buildarchtranslate:	i386:	x86_64
+buildarchtranslate:	i486:	x86_64
+buildarchtranslate:	i586:	x86_64
+buildarchtranslate:	i686:	x86_64
+buildarchtranslate:	athlon:	x86_64
+buildarchtranslate:	x86_64:	x86_64
