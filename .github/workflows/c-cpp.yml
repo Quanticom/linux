@@ -16,7 +16,7 @@ jobs:
     - name: RPMRC
       run: | 
        echo -e "buildarchtranslate:\ti386:\tx86_64\nbuildarchtranslate:\ti486:\tx86_64\nbuildarchtranslate:\ti586:\tx86_64\nbuildarchtranslate:\ti686:\tx86_64\nbuildarchtranslate:\tathlon:\tx86_64\nbuildarchtranslate:\tx86_64:\tx86_64" >> ~/.rpmrc
-       echo -e "%define arch x86_64\nBuildArch:\t%{arch}" >> ~/.rpmrc
+       #echo -e "%define arch x86_64\nBuildArch:\t%{arch}" >> ~/.rpmrc
        cat ~/.rpmrc
        rpm --eval '%{_target}'
     - name: make tinyconfig
