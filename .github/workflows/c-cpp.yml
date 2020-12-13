@@ -15,15 +15,24 @@ jobs:
     - uses: actions/checkout@v2
     - name: make tinyconfig
       run: make tinyconfig
-    - name: make
-      run: make
-    - name: make binrpm-pkg
-      run: make binrpm-pkg
-    - name: Download a Build Artifact
-      uses: actions/download-artifact@v2.0.6
+#    - name: make
+#      run: make
+#    - name: make binrpm-pkg
+#      run: make binrpm-pkg
+#    - name: Download a Build Artifact
+#      uses: actions/download-artifact@v2.0.6
       #with:
         # Artifact name
         #name: # optional
         # Destination path
         #path: # optional
-    
+
+    - run: mkdir -p /home/runner/rpmbuild/RPMS/i386/
+    - run >/home/runner/rpmbuild/RPMS/i386/hola.txt
+
+    - run: ls -l /home/runner/rpmbuild/RPMS/i386/
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: /home/runner/rpmbuild/RPMS/i386/
