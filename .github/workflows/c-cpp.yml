@@ -23,6 +23,8 @@ jobs:
       run: rpm --eval '%{_target}'
     - name: make tinyconfig
       run: make tinyconfig
+    - name: make clean
+      run: make clean
     - name: make rpm-pkg
       run: make rpm-pkg
     #- name: make binrpm-pkg
