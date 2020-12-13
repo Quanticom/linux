@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: fedora_latest
+    runs-on: ubuntu_latest
 
     steps:
     - uses: actions/checkout@v2
