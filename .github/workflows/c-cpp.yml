@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - run: echo "buildarchtranslate:\ i386:\ x86_64" > /home/runner/.rpmrc
+    - run: echo -e "buildarchtranslate:\ i386:\ x86_64" > /home/runner/.rpmrc
     - run: rpm --eval '%{_target}'
 #    - run: echo "BuildArch:x86_64" > /home/runner/.rpmrc
 #    - run: echo "build arch:x86_64" >/home/runner/.rpmrc
