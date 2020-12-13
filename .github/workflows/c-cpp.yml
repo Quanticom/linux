@@ -31,10 +31,12 @@ jobs:
       with:
        arch: ppc64le
        distro: fedora_latest
-    - run: rpm --eval '%{_target}'
-    - run: make tinyconfig
-    - run: make
-    - run: make binrpm-pkg
+
+       run: |
+        rpm --eval '%{_target}'
+        make tinyconfig
+        make
+        make binrpm-pkg
       
 #    - run: mkdir -p /home/runner/rpmbuild/RPMS/i386/
 #    - run: echo hola >/home/runner/rpmbuild/RPMS/i386/hola.txt
