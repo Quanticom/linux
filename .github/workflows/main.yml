@@ -1,0 +1,58 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Build (Node) and deploy (AWS S3)
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12'
+    - run: npm install
+    - run: npm run build
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Save public folder
+      uses: actions/upload-artifact@v2
+      with:
+        name: public
+        path: public
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Download files to publish
+        uses: actions/download-artifact@v2
+        with:
+          name: public
+
+#      - name: Configure AWS Credentials
+#        uses: aws-actions/configure-aws-credentials@v1
+#        with:
+#          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#          aws-region: sa-east-1
+
+#      - name: Upload files to s3
+#        run: aws s3 sync ./public s3://rafaels.dev --acl public-read --delete
+
+#      - name: Invalidate CloudFront Cache
+#        run: |
+#          aws cloudfront create-invalidation --distribution-id E1T9PRMLBJNKWL --paths "/index.html"
+#          aws cloudfront create-invalidation --distribution-id E2RLV0KRUYXD3U --paths "/index.html"
+#          aws cloudfront create-invalidation --distribution-id EWKMHRFAABPOH --paths "/index.html"
+    
