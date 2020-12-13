@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v2
@@ -25,18 +25,11 @@ jobs:
 
     - run: cat /home/runner/.rpmrc
 
-    - uses: uraimo/run-on-arch-action@v2.0.5
-      name: Run commands
-      id: runcmd
-      with:
-       arch: ppc64le
-       distro: fedora_latest
-
-       run: |
-        rpm --eval '%{_target}'
-        make tinyconfig
-        make
-        make binrpm-pkg
+    - run: |
+       rpm --eval '%{_target}'
+       make tinyconfig
+       make
+       make binrpm-pkg
       
 #    - run: mkdir -p /home/runner/rpmbuild/RPMS/i386/
 #    - run: echo hola >/home/runner/rpmbuild/RPMS/i386/hola.txt
