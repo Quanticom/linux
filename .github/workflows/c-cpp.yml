@@ -13,17 +13,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - run: echo -e "buildarchtranslate:\ti386:\tx86_64" > /home/runner/.rpmrc
-    - run: echo -e "buildarchtranslate:\ti486:\tx86_64" >> /home/runner/.rpmrc
-    - run: echo -e "buildarchtranslate:\ti586:\tx86_64" >> /home/runner/.rpmrc
-    - run: echo -e "buildarchtranslate:\ti686:\tx86_64" >> /home/runner/.rpmrc
-    - run: echo -e "buildarchtranslate:\tathlon:\tx86_64" >> /home/runner/.rpmrc
-    - run: echo -e "buildarchtranslate:\tx86_64:\tx86_64" >> /home/runner/.rpmrc
+    - run: echo -e "buildarchtranslate:\ti386:\tx86_64" > ~/.rpmrc
+    - run: echo -e "buildarchtranslate:\ti486:\tx86_64" >> ~/.rpmrc
+    - run: echo -e "buildarchtranslate:\ti586:\tx86_64" >> ~/.rpmrc
+    - run: echo -e "buildarchtranslate:\ti686:\tx86_64" >> ~/.rpmrc
+    - run: echo -e "buildarchtranslate:\tathlon:\tx86_64" >> ~/.rpmrc
+    - run: echo -e "buildarchtranslate:\tx86_64:\tx86_64" >> ~/.rpmrc
 
-    - run: echo -e "%define arch x86_64" >> /home/runner/.rpmrc
-    - run: echo -e "BuildArch:\t%{arch}" >> /home/runner/.rpmrc
+    - run: echo -e "%define arch x86_64" >> ~/.rpmrc
+    - run: echo -e "BuildArch:\t%{arch}" >> ~/.rpmrc
 
-    - run: cat /home/runner/.rpmrc
+    - run: cat ~/.rpmrc
 
     - run: |
        rpm --eval '%{_target}'
@@ -38,4 +38,4 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: Compiled_Kernel
-        path: /home/runner/rpmbuild/RPMS/x86_64/
+        path: ~/rpmbuild/RPMS/x86_64/
