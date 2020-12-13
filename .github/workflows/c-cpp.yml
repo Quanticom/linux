@@ -16,16 +16,16 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: RPMRC
-    - run: echo -e "buildarchtranslate:\ti386:\tx86_64\nbuildarchtranslate:\ti486:\tx86_64\nbuildarchtranslate:\ti586:\tx86_64\nbuildarchtranslate:\ti686:\tx86_64\nbuildarchtranslate:\tathlon:\tx86_64\nbuildarchtranslate:\tx86_64:\tx86_64" >> ~/.rpmrc
+      run: echo -e "buildarchtranslate:\ti386:\tx86_64\nbuildarchtranslate:\ti486:\tx86_64\nbuildarchtranslate:\ti586:\tx86_64\nbuildarchtranslate:\ti686:\tx86_64\nbuildarchtranslate:\tathlon:\tx86_64\nbuildarchtranslate:\tx86_64:\tx86_64" >> ~/.rpmrc
 
     - name: ARCH
-    - run: echo -e "%define arch x86_64\nBuildArch:\t%{arch}" >> ~/.rpmrc
+      run: echo -e "%define arch x86_64\nBuildArch:\t%{arch}" >> ~/.rpmrc
 
     - name: cat
-    - run: cat ~/.rpmrc
+      run: cat ~/.rpmrc
 
     - name: Compile
-    - run: |
+      run: |
        rpm --eval '%{_target}'
        make tinyconfig
        make
