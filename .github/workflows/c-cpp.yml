@@ -20,7 +20,7 @@ jobs:
     - name: RPMRC1
       run: cat ~/.rpmrc
     - name: RPMRC2
-      run: rpm --eval '%{_target}'
+      run: rpm --eval '%{_target}' && uname -m
     - name: make tinyconfig
       run: make tinyconfig
     - name: make clean
