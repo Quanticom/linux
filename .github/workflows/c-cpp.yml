@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: fedora_latest
 
     steps:
     - uses: actions/checkout@v2
@@ -22,8 +22,17 @@ jobs:
 
     - run: echo -e "%define arch x86_64" >> /home/runner/.rpmrc
     - run: echo -e "BuildArch:\t%{arch}" >> /home/runner/.rpmrc
-    - run: rpm --eval '%{_target}'
+
     - run: cat /home/runner/.rpmrc
+
+    - uses: uraimo/run-on-arch-action@v2.0.5
+      name: Run commands
+      id: runcmd
+      with:
+       arch: ppc64le
+       distro: fedora_latest
+
+    - run: rpm --eval '%{_target}'
     - name: make tinyconfig
       run: make tinyconfig
     - name: make
