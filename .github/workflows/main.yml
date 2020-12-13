@@ -15,13 +15,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-#    - uses: actions/checkout@v2
+
     
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: '12'
-    - run: echo > hola
+    - name: Compilar Kernel
+    - uses: actions/checkout@v2
+    - name: make tinyconfig
+      run: make tinyconfig
+    - name: make
+      run: make
+    - name: make binrpm-pkg
+      run: make binrpm-pkg
     #- run: npm run build
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -31,15 +34,28 @@ jobs:
       with:
         name: public
         path: public
+
+
+    - uses: actions/checkout@v2
+
+    - uses: actions/download-artifact@v2
+      id: download
+      with:
+        name: 'my-artifact'
+        path: /home/runner/rpmbuild/RPMS/i386/
+
+    - name: 'Echo download path'
+      run: echo ${{steps.download.outputs.download-path}}
+
 #  deploy:
 #    runs-on: ubuntu-latest
     
 #    steps:
-    - name: Download files to publish
-      uses: actions/download-artifact@v2
-      with:
-        name: public
-        path: public
+#    - name: Download files to publish
+#      uses: actions/download-artifact@v2
+#      with:
+#        name: public
+#        path: public
 
 #      - name: Configure AWS Credentials
 #        uses: aws-actions/configure-aws-credentials@v1
