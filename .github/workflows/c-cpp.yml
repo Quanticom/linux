@@ -15,8 +15,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: RPMRC
       run: echo -e "buildarchtranslate:\ti386:\tx86_64\nbuildarchtranslate:\ti486:\tx86_64\nbuildarchtranslate:\ti586:\tx86_64\nbuildarchtranslate:\ti686:\tx86_64\nbuildarchtranslate:\tathlon:\tx86_64\nbuildarchtranslate:\tx86_64:\tx86_64" > ~/.rpmrc
-    - name: RPMRC0
-      run: echo -e "%define arch x86_64\nBuildArch:\t%{arch}" >> ~/.rpmrc
+    #- name: RPMRC0
+    #  run: echo -e "%define arch x86_64\nBuildArch:\t%{arch}" >> ~/.rpmrc
     - name: RPMRC1
       run: cat ~/.rpmrc
     - name: RPMRC2
