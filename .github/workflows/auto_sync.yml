@@ -22,4 +22,3 @@ jobs:
 	  personal_token: ${{ secrets.PERSONAL_TOKEN }}
           pr_title: Auto Sync Fork
           pr_message: Actualización automática Quanticom/linux <- torvalds/linux
-
