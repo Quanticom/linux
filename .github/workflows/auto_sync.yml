@@ -3,7 +3,7 @@ name: Auto Sync Fork
 on:
   schedule:
     - cron: '0 0 * * *' # every day 0HH
-  workflow_dispatch: # on button click
+  workflow_dispatch: # on button click.
 
 jobs:
   sync:
