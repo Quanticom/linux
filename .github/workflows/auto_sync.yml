@@ -2,7 +2,7 @@ name: Auto Sync Fork
 
 on:
   schedule:
-    - cron: '*/30 * * * *' # every 30 minutes
+    - cron: '0 0 * * *' # every 30 minutes
   workflow_dispatch: # on button click
 
 jobs:
@@ -20,4 +20,4 @@ jobs:
           auto_approve: false
           merge_method: merge
           pr_title: Auto Sync Fork
-          pr_message: Actualización automática del Fork torvalds/linux
+          pr_message: Actualización automática Quanticom/linux <- torvalds/linux
