@@ -19,6 +19,6 @@ jobs:
           head: master
           auto_approve: false
           merge_method: merge
-	  personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
           pr_title: Auto Sync Fork
           pr_message: Actualización automática Quanticom/linux <- torvalds/linux
