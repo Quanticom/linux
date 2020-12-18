@@ -11,11 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: tgymnich/fork-sync@v1.1
+      - uses: tgymnich/fork-sync@v1.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           owner: Quanticom
           base: master
           head: master
-          auto_approve: false
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          auto_approve: true
+          pr_title: Auto Sync Fork
