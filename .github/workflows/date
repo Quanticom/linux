@@ -1,0 +1,14 @@
+name: Sync Fork
+
+on:
+  workflow_dispatch: # on button click
+
+jobs:
+  date:
+
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Date
+        run: |
+          date
