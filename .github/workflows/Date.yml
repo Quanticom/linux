@@ -10,8 +10,8 @@ jobs:
 
     steps:
       - name: Date
+        env:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
         run: |
           date
           echo $PERSONAL_TOKEN
-          with:
-            personal_token: ${{ secrets.PERSONAL_TOKEN }}
