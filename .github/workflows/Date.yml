@@ -12,3 +12,6 @@ jobs:
       - name: Date
         run: |
           date
+          echo $PESONAL_TOKEN
+          with:
+            personal_token: ${{ secrets.PERSONAL_TOKEN }}
