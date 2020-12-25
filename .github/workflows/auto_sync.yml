@@ -2,13 +2,13 @@ name: Auto Sync Fork
 
 on:
   schedule:
-    - cron: '0 0 * * *' # every day 0HH
+    - cron: '0 23 * * *' # every day 0HH
   workflow_dispatch: # on button click.
 
 jobs:
   sync:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
       - uses: tgymnich/fork-sync@v1.3
