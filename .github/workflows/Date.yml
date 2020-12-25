@@ -14,4 +14,4 @@ jobs:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
         run: |
           date
-          echo $PERSONAL_TOKEN
+          echo $personal_token
