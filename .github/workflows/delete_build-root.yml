@@ -20,4 +20,5 @@ jobs:
           date
           rm -fr ~/rpmbuild/BUILDROOT/
           rm -fr ~/rpmbuild/BUILD/
+          rm -fr ~/actions-runner/_work/linux/linux/
           #echo $personal_token
