@@ -1,19 +1,19 @@
-name: Date
+name: Delete BUILDROOT
 
 on:
   workflow_dispatch: # on button click
 
 jobs:
-  date:
+  Delete:
 
     #runs-on: ubuntu-20.04
     runs-on: self-hosted
 
     steps:
-      - name: Date
+      - name: Delete
         env:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
         run: |
           date
-          ls -ld ~/rpmbuild/BUILDROOT
-          echo $personal_token
+          rm -fr ~/rpmbuild/BUILDROOT/
+          #echo $personal_token
