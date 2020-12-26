@@ -16,4 +16,5 @@ jobs:
         run: |
           date
           rm -fr ~/rpmbuild/BUILDROOT/
+          rm -fr ~/rpmbuild/BUILD/
           #echo $personal_token
