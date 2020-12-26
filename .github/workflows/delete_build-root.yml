@@ -4,7 +4,7 @@ on:
   workflow_dispatch: # on button click
   workflow_run:
     workflows:
-      - Auto Sync Fork
+      - Build Kernel
 
 jobs:
   Delete:
