@@ -9,7 +9,7 @@ name: Build Kernel
 on:
   push:
     tags:
-      - '5*'
+      - 'v5*'
   release:
     types: [published]
 
