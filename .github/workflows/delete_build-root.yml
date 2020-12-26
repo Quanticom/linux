@@ -2,15 +2,18 @@ name: Delete BUILDROOT
 
 on:
   workflow_dispatch: # on button click
+  workflow_run:
+    workflows:
+      - Auto Sync Fork
 
 jobs:
   Delete:
-
+    name: Delete Build root
     #runs-on: ubuntu-20.04
     runs-on: self-hosted
-
     steps:
       - name: Delete
+        shell: bash
         env:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
         run: |
