@@ -6,7 +6,8 @@ on:
 jobs:
   date:
 
-    runs-on: ubuntu-20.04
+    #runs-on: ubuntu-20.04
+    runs-on: self-hosted
 
     steps:
       - name: Date
@@ -14,4 +15,5 @@ jobs:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
         run: |
           date
+          ls -ld ~/rpmbuild/BUILDROOT
           echo $personal_token
