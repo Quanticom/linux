@@ -11,8 +11,9 @@ jobs:
     steps:
     - name: fetch all
       run: |
-        git init
-        git remote add linux https://github.com/Quanticom/linux.git
+        git clone https://github.com/Quanticom/linux.git
+        #git init
+        #git remote add linux https://github.com/Quanticom/linux.git
         git config pull.rebase false
         git checkout -t -b master origin/master
         for branch in `git branch -a | grep remotes | grep -v HEAD | grep -v master`; do
