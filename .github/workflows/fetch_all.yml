@@ -13,6 +13,7 @@ jobs:
       run: |
         git init
         git remote add linux https://github.com/Quanticom/linux.git
+        git config pull.rebase false
         for branch in `git branch -a | grep remotes | grep -v HEAD | grep -v master`; do
             git branch --track ${branch##*/} $branch
         done
