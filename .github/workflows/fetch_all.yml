@@ -11,6 +11,7 @@ jobs:
     steps:
     - name: fetch all
       run: |
+        git init
         for branch in `git branch -a | grep remotes | grep -v HEAD | grep -v master`; do
             git branch --track ${branch##*/} $branch
         done
