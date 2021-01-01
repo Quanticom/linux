@@ -9,6 +9,8 @@ jobs:
   repo-sync_branches:
     runs-on: ubuntu-latest
     steps:
+    - name: set-remote
+      run: git remote set-url origin git@github.com:torvalds/linux.git
     - name: repo-sync
       uses: wei/git-sync@v2
       with:
