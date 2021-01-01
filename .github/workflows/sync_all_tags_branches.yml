@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: set-remote
-      run: git remote add origin https://quanticom:4586971'%40'a@github.com/torvalds/linux.git - git remote set-url origin git@github.com:torvalds/linux.git
+      run: git remote add origin git@github.com:torvalds/linux.git
     - name: repo-sync
       uses: wei/git-sync@v2
       with:
