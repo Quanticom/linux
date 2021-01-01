@@ -16,15 +16,15 @@ jobs:
         source_branch: "refs/remotes/source/*"
         destination_repo: "Quanticom/linux"
         destination_branch: "refs/heads/*"
-#        ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-  repo-sync_tags:
-    runs-on: ubuntu-latest
-    steps:
-    - name: repo-sync
-      uses: wei/git-sync@v2
-      with:
-        source_repo: "torvalds/linux"
-        source_branch: "refs/tags/*"
-        destination_repo: "Quanticom/linux"
-        destination_branch: "refs/tags/*"
+#  repo-sync_tags:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - name: repo-sync
+#      uses: wei/git-sync@v2
+#      with:
+#        source_repo: "torvalds/linux"
+#        source_branch: "refs/tags/*"
+#        destination_repo: "Quanticom/linux"
+#        destination_branch: "refs/tags/*"
