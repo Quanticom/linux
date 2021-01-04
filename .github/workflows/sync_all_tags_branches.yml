@@ -20,7 +20,8 @@ jobs:
         source_branch: "refs/remotes/source/*"
         destination_repo: "Quanticom/linux"
         destination_branch: "refs/heads/*"
-        ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        #ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        ssh_private_key: ${{ secrets.PERSONAL_TOKEN }}
 
 #  repo-sync_tags:
 #    runs-on: ubuntu-latest
